@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:online_food_project/presentation/view/auth/login_screen.dart';
 
+import 'core/themes/size.dart';
+import 'core/themes/theme.dart';
+
 void main() {
   runApp(const MyApp());
 }
@@ -10,13 +13,10 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+     SizeConfig().init(context);
     return MaterialApp(
    
-      theme: ThemeData(
-   
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
-      ),
+     theme: theme(context),
       home: const LoginScreen(),
     );
   }
