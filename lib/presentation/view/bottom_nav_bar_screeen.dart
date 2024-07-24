@@ -67,57 +67,60 @@ class _BottomNavBarScreenState extends State<BottomNavBarScreen> {
         //   children: _buildScreens,
         // ),
       
-        bottomNavigationBar: BottomNavigationBar(
-            unselectedLabelStyle:
-                 TextStyle(color: Colors.grey[300], fontSize: 15),
-            backgroundColor: const Color(0xFFFFFFFF),
-            //fixedColor: Color(0xFFFFFFFF),
-            unselectedItemColor: Colors.grey[500],
-            showUnselectedLabels: true,
-            selectedLabelStyle:
-                const TextStyle(color: secondaryColor, fontSize: 15),
-            selectedItemColor: secondaryColor,
-            currentIndex: _selectedIndex,
-            onTap: (currentIndex) {
-              setState(() {
-                _selectedIndex = currentIndex;
-              });
-      
-              _pageController.animateToPage(
-                currentIndex,
-                duration: Duration(milliseconds: 300),
-                curve: Curves.linear,
-              );
-            },
-            items: [
-              BottomNavigationBarItem(
+        bottomNavigationBar: Container(
+          height: 70,
+          child: BottomNavigationBar(
+              unselectedLabelStyle:
+                   TextStyle(color: Colors.grey[300], fontSize: 13),
+              backgroundColor: const Color(0xFFFFFFFF),
+              //fixedColor: Color(0xFFFFFFFF),
+              unselectedItemColor: Colors.grey[500],
+              showUnselectedLabels: true,
+              selectedLabelStyle:
+                  const TextStyle(color: Color(0xffA2774C), fontSize: 13),
+              selectedItemColor: secondaryColor,
+              currentIndex: _selectedIndex,
+              onTap: (currentIndex) {
+                setState(() {
+                  _selectedIndex = currentIndex;
+                });
+                
+                _pageController.animateToPage(
+                  currentIndex,
+                  duration: Duration(milliseconds: 300),
+                  curve: Curves.linear,
+                );
+              },
+              items: [
+                BottomNavigationBarItem(
+                    icon: Icon(
+                      Icons.menu_open,
+                      size: 25,
+                    ),
+                    label: "MENU"),
+                BottomNavigationBarItem(
                   icon: Icon(
-                    Icons.home,
+                    Icons.punch_clock,
                     size: 25,
                   ),
-                  label: "home"),
-              BottomNavigationBarItem(
-                icon: Icon(
-                  Icons.search,
-                  size: 25,
+                  label: "ORDER",
                 ),
-                label: "Search",
-              ),
-              BottomNavigationBarItem(
-                icon: Icon(
-                  Icons.favorite,
-                  size: 25,
+                BottomNavigationBarItem(
+                  icon: Icon(
+                    Icons.table_view,
+                    size: 25,
+                  ),
+                  label: "TABLE",
                 ),
-                label: "Favourite",
-              ),
-              BottomNavigationBarItem(
-                icon: Icon(
-                  Icons.menu,
-                  size: 25,
+                BottomNavigationBarItem(
+                  icon: Icon(
+                    Icons.display_settings,
+                    size: 25,
+                  ),
+                  label: "DISPLAY",
                 ),
-                label: "Menu",
-              ),
-            ]),
+              ]),
+        ),
       ),
     );
   }

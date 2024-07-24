@@ -16,6 +16,7 @@ class _OrderScreenState extends State<OrderScreen> {
     return Scaffold(
       backgroundColor: primaryColor,
       appBar: AppBar(
+        backgroundColor: primaryColor,
           toolbarHeight: 90,
     title: Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,

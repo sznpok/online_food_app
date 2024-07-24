@@ -94,9 +94,75 @@ class _MenuScreenState extends State<MenuScreen>
                     ),
                                     ),
                   ),
-                Center(child: Text('Content for Tab 2')),
-                Center(child: Text('Content for Tab 3')),
-                Center(child: Text('Content for Tab 4')),
+                  //***2nd**************** */
+                Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 20),
+                    child: Container(
+                    height: 350,
+                    child: GridView.builder(
+                      padding: EdgeInsets.all(0),
+                      scrollDirection: Axis.vertical,
+                      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                          crossAxisCount: 2,
+                          crossAxisSpacing: 15.0,
+                          mainAxisSpacing: 15.0,
+                          mainAxisExtent: 200),
+                      itemCount: 5, // Number of items in the grid
+                      itemBuilder: (context, index) {
+                        return Container(
+                          // width: 220,
+                          child: CustomMenuCard(),
+                        );
+                      },
+                    ),
+                                    ),
+                  ),
+               //*****3rd******************** */
+                Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 20),
+                    child: Container(
+                    height: 350,
+                    child: GridView.builder(
+                      padding: EdgeInsets.all(0),
+                      scrollDirection: Axis.vertical,
+                      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                          crossAxisCount: 2,
+                          crossAxisSpacing: 15.0,
+                          mainAxisSpacing: 15.0,
+                          mainAxisExtent: 200),
+                      itemCount: 3, // Number of items in the grid
+                      itemBuilder: (context, index) {
+                        return Container(
+                          // width: 220,
+                          child: CustomMenuCard(),
+                        );
+                      },
+                    ),
+                                    ),
+                  ),
+                  //**4th****************************** */
+                 Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 20),
+                    child: Container(
+                    height: 350,
+                    child: GridView.builder(
+                      padding: EdgeInsets.all(0),
+                      scrollDirection: Axis.vertical,
+                      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                          crossAxisCount: 2,
+                          crossAxisSpacing: 15.0,
+                          mainAxisSpacing: 15.0,
+                          mainAxisExtent: 200),
+                      itemCount: 2, // Number of items in the grid
+                      itemBuilder: (context, index) {
+                        return Container(
+                          // width: 220,
+                          child: CustomMenuCard(),
+                        );
+                      },
+                    ),
+                                    ),
+                  ),
               ],
             ),
           ),

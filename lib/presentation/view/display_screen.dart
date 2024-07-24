@@ -46,7 +46,8 @@ class _DisplayScreenState extends State<DisplayScreen> {
         ),
       ),
       SizedBox(width: 20,),
-      Icon(Icons.menu, color: blackColor,size: 35,)
+      Icon(Icons.menu, color: blackColor,size: 35,),
+       SizedBox(width: 10,),
     ],
     
       ),

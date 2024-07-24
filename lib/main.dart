@@ -7,6 +7,7 @@ import 'presentation/view/auth/sign_up_screen.dart';
 import 'presentation/view/display_screen.dart';
 import 'presentation/view/menu_screen.dart';
 import 'presentation/view/order_screen.dart';
+import 'presentation/view/splash_screen.dart';
 import 'presentation/view/table_screen.dart';
 
 void main() {
@@ -23,7 +24,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
    
      theme: theme(context),
-      home:  SignUpScreen(),
+      home:  SplashScreen(),
     );
   }
 }
