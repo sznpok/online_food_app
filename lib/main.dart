@@ -19,9 +19,10 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
      SizeConfig().init(context);
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
    
      theme: theme(context),
-      home:  DisplayScreen(),
+      home:  LoginScreen(),
     );
   }
 }

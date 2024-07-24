@@ -27,7 +27,41 @@ class _TableScreenState extends State<TableScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
+      appBar: AppBar(
+          toolbarHeight: 90,
+    title: Row(
+     // mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: [
+        Image.asset("assets/images/restro tech 1.png",
+        height: 82,
+        width: 80,
+        ),
+        
+        
+      ],
+    ),
+    actions: [
+      Container(
+        padding: EdgeInsets.symmetric(horizontal: 10),
+        height: 52,
+        decoration: BoxDecoration(
+          color: secondaryColor,
+          borderRadius: BorderRadius.circular(10),
+        ),
+        child: Row(
+          children: [
+            Icon(Icons.add_box_outlined, color: Color(0xff2C3832),),
+            Text("ADD TABLE",
+            style: Theme.of(context).textTheme.bodyMedium!.copyWith(fontSize: 16, fontWeight: FontWeight.w500, color: Color(0xff2C3832)),
+            ),
+          ],
+        ),
+      ),
+      SizedBox(width: 20,),
+      Icon(Icons.menu, color: blackColor,size: 35,)
+    ],
+    
+      ),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [

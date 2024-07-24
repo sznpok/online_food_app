@@ -40,6 +40,7 @@ class CustomTextfield extends StatelessWidget {
   Widget build(BuildContext context) {
     return TextFormField(
      // focusNode: focusNode,
+     
       cursorColor: Colors.black38,
       obscureText: obscure,
       keyboardType: keyboardType,
@@ -54,9 +55,11 @@ class CustomTextfield extends StatelessWidget {
         filled: true,
         labelStyle: labelStyle,
         fillColor: primaryColor,
-        contentPadding: const EdgeInsets.symmetric(horizontal: 10.0),
+        contentPadding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 12),
         hintText: hintText,
         enabled: true,
+        hintStyle: TextStyle(color: blackColor)
+        
         // border: OutlineInputBorder(
         //   borderSide: BorderSide(width: 2),
         // )

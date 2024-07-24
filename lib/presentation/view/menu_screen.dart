@@ -2,12 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:online_food_project/core/themes/theme.dart';
 import 'package:online_food_project/presentation/widgets/custom_menu_card.dart';
 
-class MyHomePage extends StatefulWidget {
+class MenuScreen extends StatefulWidget {
   @override
-  _MyHomePageState createState() => _MyHomePageState();
+  _MenuScreenState createState() => _MenuScreenState();
 }
 
-class _MyHomePageState extends State<MyHomePage>
+class _MenuScreenState extends State<MenuScreen>
     with SingleTickerProviderStateMixin {
   late TabController _tabController;
 
@@ -30,16 +30,17 @@ class _MyHomePageState extends State<MyHomePage>
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('TabBar Example'),
-        // bottom: TabBar(
-        //   controller: _tabController,
-        //   indicatorColor: Colors.white,
-        //   tabs: [
-        //     Tab(text: 'Tab 1'),
-        //     Tab(text: 'Tab 2'),
-        //     Tab(text: 'Tab 3'),
-        //   ],
-        // ),
+        toolbarHeight: 90,
+    title: Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: [
+        Image.asset("assets/images/restro tech 1.png",
+        height: 82,
+        width: 80,
+        ),
+        Icon(Icons.menu, color: blackColor,size: 35,)
+      ],
+    ),
       ),
       body: Column(
         children: [

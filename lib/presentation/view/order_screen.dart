@@ -15,7 +15,19 @@ class _OrderScreenState extends State<OrderScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: primaryColor,
-      appBar: AppBar(),
+      appBar: AppBar(
+          toolbarHeight: 90,
+    title: Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: [
+        Image.asset("assets/images/restro tech 1.png",
+        height: 82,
+        width: 80,
+        ),
+        Icon(Icons.menu, color: blackColor,size: 35,)
+      ],
+    ),
+      ),
       body: Padding(
         padding: const EdgeInsets.only(left: 8, right: 10, bottom: 8),
         child: Column(
