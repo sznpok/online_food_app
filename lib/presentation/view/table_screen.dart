@@ -86,6 +86,64 @@ class _TableScreenState extends State<TableScreen> {
             ),
         ],
       ),
+      bottomNavigationBar: Container(
+        height: 140,
+        color: Color(0xffEAF0F0),
+
+        child: Column(
+          // mainAxisAlignment: MainAxisAlignment.center,
+          // crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            SizedBox(height: SizeConfig.screenHeight!*0.02,),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Row(
+                  children: [
+                    Icon(Icons.table_bar),
+                    SizedBox(width: SizeConfig.screenWidth!*0.02,),
+                    Text("TABLE",
+                    style: Theme.of(context).textTheme.bodyMedium!.copyWith(fontSize: 15, fontWeight: FontWeight.w500, color: Color(0xff2C3832)),
+                    ),
+                     SizedBox(width: SizeConfig.screenWidth!*0.02,),
+                    Text("1",
+                    style: Theme.of(context).textTheme.bodyMedium!.copyWith(fontSize: 23, fontWeight: FontWeight.w500, color: Color(0xffD89F65)),
+                    ),
+                  ],
+                ),
+                 SizedBox(width: SizeConfig.screenWidth!*0.1,),
+                Row(
+              children: [
+                Icon(Icons.person_2),
+                SizedBox(width: SizeConfig.screenWidth!*0.02,),
+                Text("GUESS",
+                style: Theme.of(context).textTheme.bodyMedium!.copyWith(fontSize: 15, fontWeight: FontWeight.w500, color: Color(0xff2C3832)),
+                ),
+                 SizedBox(width: SizeConfig.screenWidth!*0.02,),
+                Text("2",
+                style: Theme.of(context).textTheme.bodyMedium!.copyWith(fontSize: 23, fontWeight: FontWeight.w500, color: Color(0xffD89F65)),
+                ),
+              ],
+            ),
+              ],
+            ),
+            SizedBox(height: SizeConfig.screenHeight!*0.02,),
+
+            ClipRRect(
+              borderRadius: BorderRadius.circular(10),
+              child: CustomButton(
+                ButtonName: "SELECT AND CONTINUE", 
+                bgColor: Color(0xff4F970F), 
+                txtColor: primaryColor, 
+                height: 58.0, 
+                width: 268.0
+                ),
+            )
+             
+
+          ],
+        ),
+      ),
     );
   }
 }
