@@ -3,11 +3,10 @@ import 'package:google_fonts/google_fonts.dart';
 
 import 'size.dart';
 
-
-
-const primaryColor = Color(0xff3579F6);
-const Color secondaryColor = Color(0xFFFFFFFF);
+const primaryColor = Color(0xffFFFFFF);
+const Color secondaryColor = Color(0xFFFFAD39);
 const Color shadowColor = Color(0xFFD7D3D3);
+const Color blackColor = Color(0xff000000);
 
 const Color textFormColor = Color(0xFFD9D9D9);
 const Color errorColor = Color(0xffDC3545);
@@ -20,7 +19,7 @@ ThemeData theme(BuildContext context) {
     useMaterial3: true,
     primaryColor: primaryColor,
     appBarTheme: const AppBarTheme(
-      backgroundColor: secondaryColor,
+      backgroundColor: primaryColor,
       centerTitle: true,
       foregroundColor: primaryColor,
       actionsIconTheme: IconThemeData(
@@ -61,19 +60,19 @@ ThemeData theme(BuildContext context) {
       enabledBorder: OutlineInputBorder(
         borderSide: BorderSide(
           width: SizeConfig.screenHeight! * 0.001,
-          color: shadowColor,
+          color: primaryColor,
         ),
         borderRadius: BorderRadius.circular(
-          SizeConfig.screenHeight! * 0.01,
+          SizeConfig.screenHeight! * 0.058,
         ),
       ),
       focusedBorder: OutlineInputBorder(
           borderSide: BorderSide(
             width: SizeConfig.screenHeight! * 0.001,
-            color: shadowColor,
+            color: primaryColor,
           ),
           borderRadius: BorderRadius.circular(
-            SizeConfig.screenHeight! * 0.01,
+            SizeConfig.screenHeight! * 0.058,
           )),
       errorBorder: OutlineInputBorder(
         borderSide: BorderSide(
@@ -81,7 +80,7 @@ ThemeData theme(BuildContext context) {
           color: errorColor,
         ),
         borderRadius: BorderRadius.circular(
-          SizeConfig.screenHeight! * 0.01,
+          SizeConfig.screenHeight! * 0.058,
         ),
       ),
     ),
