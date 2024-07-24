@@ -30,42 +30,9 @@ class _LoginScreenState extends State<LoginScreen> {
          SizedBox(height: 20,),
 
 
-        Container(
-          decoration: BoxDecoration(
-            color: primaryColor,
-            borderRadius: BorderRadius.circular(9),
-            border: Border.all(
-              width: 1,
-              color: Color(0xff797B7E)
-            )
-          ),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text("Order #351",
-                      style: Theme.of(context).textTheme.bodyMedium!.copyWith(fontSize: 16, color: blackColor, fontWeight: FontWeight.w500),
-                      ),
-                      Text("05 Feb 2023, 08:28 PM",
-                      style: Theme.of(context).textTheme.bodyMedium!.copyWith(fontSize: 14, color: Color(0xff797B7E), fontWeight: FontWeight.w400),
-                      ),
-                     
-                    ],
-                  ),
-                   CircleAvatar(
-                        backgroundImage: AssetImage("assets/images/image 3.png"),
-                      ),
-                ],
+        
 
-              ),
-            ],
-          ),
-        ),
+       
         ],
       ),
     );
