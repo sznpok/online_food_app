@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:online_food_project/core/themes/size.dart';
 import 'package:online_food_project/core/themes/theme.dart';
+import 'package:online_food_project/presentation/view/menu_screen.dart';
 import '../../widgets/custom_button.dart';
 import '../../widgets/custom_circular_button.dart';
 import '../../widgets/custom_textfield.dart';
+import '../bottom_nav_bar_screeen.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -63,7 +65,14 @@ class _LoginScreenState extends State<LoginScreen> {
                   ),
                    SizedBox(height: 10,),
               
-                  CustomCircularButton(buttonName: "Running order"),
+                  CustomCircularButton(buttonName: "Running order",
+                  onPressed: () {
+                   Navigator.of(context).pushAndRemoveUntil(
+  MaterialPageRoute(builder: (context) => BottomNavBarScreen()),
+  (Route route) => false,
+);
+                  },
+                  ),
                    SizedBox(height: 25,),
                 ],
               ),

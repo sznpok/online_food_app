@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:online_food_project/core/themes/size.dart';
 import 'package:online_food_project/core/themes/theme.dart';
+import 'package:online_food_project/presentation/view/auth/login_screen.dart';
 import '../../widgets/custom_button.dart';
 import '../../widgets/custom_circular_button.dart';
 import '../../widgets/custom_textfield.dart';
@@ -120,7 +121,13 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   SizedBox(
                     height: 10,
                   ),
-                  CustomCircularButton(buttonName: "Running order"),
+                  CustomCircularButton(
+                    buttonName: " Sign Up",
+                    onPressed: () {
+                      Navigator.of(context).push(MaterialPageRoute(
+                          builder: (context) => LoginScreen()));
+                    },
+                  ),
                   SizedBox(
                     height: 25,
                   ),
