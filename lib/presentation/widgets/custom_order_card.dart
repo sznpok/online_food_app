@@ -186,7 +186,7 @@ class _CustomOrderCardState extends State<CustomOrderCard> {
                         )),
                     child: Padding(
                       padding: const EdgeInsets.all(8.0),
-                      child: Icon(Icons.cancel, color: Color(0xffDB79A9)),
+                      child: Icon(Icons.close, color: Color(0xffDB79A9)),
                     ),
                   ),
                   SizedBox(
@@ -197,11 +197,11 @@ class _CustomOrderCardState extends State<CustomOrderCard> {
                         borderRadius: BorderRadius.circular(10),
                         border: Border.all(
                           width: 1,
-                          color: Color(0xffDB79A9),
+                          color: Color(0xff87B6A1),
                         )),
                     child: Padding(
                       padding: const EdgeInsets.all(8.0),
-                      child: Icon(Icons.cancel, color: Color(0xffDB79A9)),
+                      child: Icon(Icons.check, color: Color(0xff87B6A1)),
                     ),
                   ),
                   SizedBox(

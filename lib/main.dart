@@ -5,6 +5,7 @@ import 'core/themes/size.dart';
 import 'core/themes/theme.dart';
 import 'presentation/view/menu_screen.dart';
 import 'presentation/view/order_screen.dart';
+import 'presentation/view/table_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -19,7 +20,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
    
      theme: theme(context),
-      home:  OrderScreen(),
+      home:  TableScreen(),
     );
   }
 }
