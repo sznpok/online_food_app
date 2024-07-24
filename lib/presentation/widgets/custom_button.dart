@@ -11,15 +11,16 @@ class CustomButton extends StatefulWidget {
   final double? height;
   final double? width;
   VoidCallback? onPressed;
-   CustomButton(
-      {super.key,
-      required this.ButtonName,
-      required this.bgColor,
-      required this.txtColor,
-      required this.height,
-      required this.width,
-      this.onPressed,
-      });
+  
+  CustomButton({
+    super.key,
+    required this.ButtonName,
+    required this.bgColor,
+    required this.txtColor,
+    required this.height,
+    required this.width,
+    this.onPressed,
+  });
 
   @override
   State<CustomButton> createState() => _CustomButtonState();
@@ -39,7 +40,7 @@ class _CustomButtonState extends State<CustomButton> {
           child: Text(
             widget.ButtonName,
             style: Theme.of(context).textTheme.bodyLarge!.copyWith(
-                fontSize: 18,
+                fontSize: 17,
                 fontWeight: FontWeight.w400,
                 color: widget.txtColor),
           ),

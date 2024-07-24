@@ -1,13 +1,9 @@
 import 'package:flutter/material.dart';
 
-class CustomTableCard extends StatefulWidget {
-  const CustomTableCard({super.key});
+class CustomTableCard extends StatelessWidget {
+  final String tableName;
+  const CustomTableCard({super.key, required this.tableName});
 
-  @override
-  State<CustomTableCard> createState() => _CustomTableCardState();
-}
-
-class _CustomTableCardState extends State<CustomTableCard> {
   @override
   Widget build(BuildContext context) {
     return Stack(
@@ -24,7 +20,7 @@ class _CustomTableCardState extends State<CustomTableCard> {
             left: 50,
             right: 50,
             child: Text(
-              "T1",
+              tableName,
               style: Theme.of(context).textTheme.bodyLarge!.copyWith(
                   fontSize: 25,
                   color: Color(0xffA2774C),
