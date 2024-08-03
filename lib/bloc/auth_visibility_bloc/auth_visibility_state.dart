@@ -1,6 +1,15 @@
 part of 'auth_visibility_bloc.dart';
 
-@immutable
-sealed class AuthVisibilityState {}
+class AuthVisibilityState extends Equatable {
+  final bool? isVisible;
 
-final class AuthVisibilityInitial extends AuthVisibilityState {}
+  const AuthVisibilityState({this.isVisible});
+
+  AuthVisibilityState copyWith({bool? visible}) {
+    return AuthVisibilityState(isVisible: visible ?? isVisible);
+  }
+
+  @override
+  // TODO: implement props
+  List<Object?> get props => [isVisible];
+}

@@ -6,7 +6,14 @@ import '../../core/themes/theme.dart';
 class CustomCircularButton extends StatelessWidget {
   final String buttonName;
   final VoidCallback onPressed;
-  const CustomCircularButton({super.key, required this.buttonName, required this.onPressed});
+  final bool isLoading;
+
+  const CustomCircularButton({
+    super.key,
+    required this.buttonName,
+    required this.onPressed,
+    this.isLoading = false,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -20,13 +27,15 @@ class CustomCircularButton extends StatelessWidget {
           borderRadius: BorderRadius.circular(58),
         ),
         child: Center(
-          child: Text(
-            buttonName,
-            style: Theme.of(context).textTheme.bodyLarge!.copyWith(
-                  color: primaryColor,
-                  fontSize: 25,
-                ),
-          ),
+          child: !isLoading
+              ? Text(
+                  buttonName,
+                  style: Theme.of(context).textTheme.bodyLarge!.copyWith(
+                        color: primaryColor,
+                        fontSize: 25,
+                      ),
+                )
+              : const CircularProgressIndicator(),
         ),
       ),
     );

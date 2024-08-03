@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:online_food_project/bloc/get_menu_bloc/get_menu_bloc.dart';
+import 'package:online_food_project/constant/custom_storage.dart';
 import 'package:online_food_project/core/themes/theme.dart';
+import 'package:online_food_project/presentation/view/auth/login_screen.dart';
 import 'package:online_food_project/presentation/widgets/custom_menu_card.dart';
 
 class MenuScreen extends StatefulWidget {
@@ -16,8 +20,8 @@ class _MenuScreenState extends State<MenuScreen>
   @override
   void initState() {
     super.initState();
+    context.read<GetMenuBloc>().add(FetchMenuEvent());
     _tabController = TabController(length: 4, vsync: this);
-   bool isSelected = true;
   }
 
   @override
@@ -31,16 +35,35 @@ class _MenuScreenState extends State<MenuScreen>
     return Scaffold(
       appBar: AppBar(
         toolbarHeight: 90,
-    title: Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: [
-        Image.asset("assets/images/restro tech 1.png",
-        height: 82,
-        width: 80,
+        title: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Image.asset(
+              "assets/images/restro tech 1.png",
+              height: 82,
+              width: 80,
+            ),
+            IconButton(
+              onPressed: () {
+                deleteTokenAccess();
+                Future.delayed(
+                  const Duration(seconds: 1),
+                  () {
+                    Navigator.of(context).pushAndRemoveUntil(
+                      MaterialPageRoute(
+                          builder: (context) => const LoginScreen()),
+                      (route) => false,
+                    );
+                  },
+                );
+              },
+              icon: const Icon(
+                Icons.logout,
+                color: secondaryColor,
+              ),
+            )
+          ],
         ),
-        Icon(Icons.menu, color: blackColor,size: 35,)
-      ],
-    ),
       ),
       body: Column(
         children: [
@@ -72,97 +95,135 @@ class _MenuScreenState extends State<MenuScreen>
             child: TabBarView(
               controller: _tabController,
               children: [
-                  Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 20),
-                    child: Container(
-                    height: 350,
-                    child: GridView.builder(
-                      padding: EdgeInsets.all(0),
-                      scrollDirection: Axis.vertical,
-                      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                          crossAxisCount: 2,
-                          crossAxisSpacing: 15.0,
-                          mainAxisSpacing: 15.0,
-                          mainAxisExtent: 200),
-                      itemCount: 21, // Number of items in the grid
-                      itemBuilder: (context, index) {
-                        return Container(
-                          // width: 220,
-                          child: CustomMenuCard(),
-                        );
-                      },
-                    ),
-                                    ),
-                  ),
-                  //***2nd**************** */
                 Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 20),
-                    child: Container(
-                    height: 350,
-                    child: GridView.builder(
-                      padding: EdgeInsets.all(0),
-                      scrollDirection: Axis.vertical,
-                      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                          crossAxisCount: 2,
-                          crossAxisSpacing: 15.0,
-                          mainAxisSpacing: 15.0,
-                          mainAxisExtent: 200),
-                      itemCount: 5, // Number of items in the grid
-                      itemBuilder: (context, index) {
-                        return Container(
-                          // width: 220,
-                          child: CustomMenuCard(),
-                        );
-                      },
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 15, vertical: 20),
+                  child: GridView.builder(
+                    padding: const EdgeInsets.all(0),
+                    scrollDirection: Axis.vertical,
+                    shrinkWrap: true,
+
+                    gridDelegate:
+                        const SliverGridDelegateWithFixedCrossAxisCount(
+                      crossAxisCount: 2,
+                      childAspectRatio: 7 / 9,
+                      crossAxisSpacing: 10,
+                      mainAxisSpacing: 10,
                     ),
-                                    ),
+                    itemCount: 10,
+                    // Number of items in the grid
+                    itemBuilder: (context, index) {
+                      return Container(
+                        // width: 220,
+                        child: CustomMenuCard(
+                          price: "129",
+                          image: "",
+                          category: "",
+                          title: "",
+                        ),
+                      );
+                    },
                   ),
-               //*****3rd******************** */
+                ),
+                //***2nd**************** */
                 Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 20),
-                    child: Container(
-                    height: 350,
-                    child: GridView.builder(
-                      padding: EdgeInsets.all(0),
-                      scrollDirection: Axis.vertical,
-                      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                          crossAxisCount: 2,
-                          crossAxisSpacing: 15.0,
-                          mainAxisSpacing: 15.0,
-                          mainAxisExtent: 200),
-                      itemCount: 3, // Number of items in the grid
-                      itemBuilder: (context, index) {
-                        return Container(
-                          // width: 220,
-                          child: CustomMenuCard(),
-                        );
-                      },
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 15, vertical: 20),
+                  child: GridView.builder(
+                    padding: EdgeInsets.all(0),
+                    scrollDirection: Axis.vertical,
+                    gridDelegate:
+                        const SliverGridDelegateWithFixedCrossAxisCount(
+                      crossAxisCount: 2,
+                      childAspectRatio: 7 / 9,
+                      crossAxisSpacing: 10,
+                      mainAxisSpacing: 10,
                     ),
-                                    ),
+                    itemCount: 5,
+                    // Number of items in the grid
+                    itemBuilder: (context, index) {
+                      return Container(
+                        // width: 220,
+                        child: CustomMenuCard(
+                          price: "129",
+                          image: "",
+                          category: "",
+                          title: "",
+                        ),
+                      );
+                    },
                   ),
-                  //**4th****************************** */
-                 Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 20),
-                    child: Container(
-                    height: 350,
-                    child: GridView.builder(
-                      padding: EdgeInsets.all(0),
-                      scrollDirection: Axis.vertical,
-                      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                          crossAxisCount: 2,
-                          crossAxisSpacing: 15.0,
-                          mainAxisSpacing: 15.0,
-                          mainAxisExtent: 200),
-                      itemCount: 2, // Number of items in the grid
-                      itemBuilder: (context, index) {
-                        return Container(
-                          // width: 220,
-                          child: CustomMenuCard(),
+                ),
+                //*****3rd******************** */
+                Padding(
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 15, vertical: 20),
+                  child: BlocBuilder<GetMenuBloc, GetMenuState>(
+                    builder: (context, state) {
+                      if (state is GetMenuErrorState) {
+                        return Center(
+                          child: Text(state.error ?? "Unknown Error"),
                         );
-                      },
-                    ),
-                                    ),
+                      } else if (state is GetMenuLoadingState) {
+                        return const Center(
+                          child: CircularProgressIndicator.adaptive(),
+                        );
+                      } else if (state is GetMenuSuccessState) {
+                        return GridView.builder(
+                          padding: EdgeInsets.all(0),
+                          scrollDirection: Axis.vertical,
+                          gridDelegate:
+                              const SliverGridDelegateWithFixedCrossAxisCount(
+                            crossAxisCount: 2,
+                            childAspectRatio: 7 / 9,
+                            crossAxisSpacing: 10,
+                            mainAxisSpacing: 10,
+                          ),
+                          itemCount: state.menuData!.length,
+                          // Number of items in the grid
+                          itemBuilder: (context, index) {
+                            final data = state.menuData![index];
+                            return CustomMenuCard(
+                              title: data.name,
+                              category: data.category,
+                              image: data.photo,
+                              price: data.price.toString(),
+                            );
+                          },
+                        );
+                      }
+                      return const Center(
+                        child: CircularProgressIndicator.adaptive(),
+                      );
+                    },
                   ),
+                ),
+                //**4th****************************** */
+                Padding(
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 15, vertical: 20),
+                  child: GridView.builder(
+                    padding: const EdgeInsets.all(0),
+                    scrollDirection: Axis.vertical,
+                    gridDelegate:
+                        const SliverGridDelegateWithFixedCrossAxisCount(
+                      crossAxisCount: 2,
+                      childAspectRatio: 7 / 9,
+                      crossAxisSpacing: 10,
+                      mainAxisSpacing: 10,
+                    ),
+                    itemCount: 2,
+                    // Number of items in the grid
+                    itemBuilder: (context, index) {
+                      return const CustomMenuCard(
+                        price: "129",
+                        image: "",
+                        category: "",
+                        title: "",
+                      );
+                    },
+                  ),
+                ),
               ],
             ),
           ),
